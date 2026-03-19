@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: ms-user-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms-user-ms
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5435:5432"
+    volumes:
+      - user-pgdata:/var/lib/postgresql/data
+
+volumes:
+  user-pgdata:

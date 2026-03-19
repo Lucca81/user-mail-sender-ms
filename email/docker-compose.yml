@@ -1,0 +1,16 @@
+services:
+  ms-email-db:
+    image: postgres:17
+    container_name: ms-email-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_email_ms
+      POSTGRES_USER: ${DB_EMAIL_USERNAME}
+      POSTGRES_PASSWORD: ${DB_EMAIL_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - email-pgdata:/var/lib/postgresql/data
+
+volumes:
+  email-pgdata:
