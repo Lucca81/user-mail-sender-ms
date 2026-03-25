@@ -92,24 +92,6 @@ cp user/.env.example user/.env
 cp email/.env.example email/.env
 ```
 
-> Importante: nunca versione o arquivo `.env` com valores reais.
-
-## Subindo infraestrutura local (Postgres)
-
-### Banco do `user`
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/user
-docker compose up -d
-```
-
-### Banco do `email`
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/email
-docker compose up -d
-```
-
 ## RabbitMQ / CloudAMQP
 
 Os dois servicos leem configuracao do RabbitMQ por variaveis de ambiente:
@@ -138,19 +120,6 @@ Para CloudAMQP, preencha essas variaveis com os dados da sua instancia.
 
 ## Executando os microservicos
 
-### 1) Subir `email` primeiro (consumer)
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/email
-./mvnw spring-boot:run
-```
-
-### 2) Subir `user` (producer)
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/user
-./mvnw spring-boot:run
-```
 
 Portas padrao:
 
@@ -169,8 +138,8 @@ Exemplo de body:
 
 ```json
 {
-  "name": "Lucca",
-  "email": "lucca@example.com"
+  "name": "example",
+  "email": "example@example.com"
 }
 ```
 
@@ -190,7 +159,7 @@ Efeitos:
 Exemplo:
 
 ```bash
-curl "http://localhost:8081/users/email/lucca@example.com"
+curl "http://localhost:8081/users/email/example@example.com"
 ```
 
 ### Atualizar usuario
