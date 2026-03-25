@@ -244,21 +244,7 @@ Excecao customizada:
 
 - `user/src/main/java/dev/lucca/user/exception/EmailAlreadyUsedException.java`
 
-## Testes
 
-Executar testes do `user`:
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/user
-./mvnw test
-```
-
-Executar testes do `email`:
-
-```bash
-cd /home/lucca/projetos/user-mail-sender-ms/email
-./mvnw test
-```
 
 
 
