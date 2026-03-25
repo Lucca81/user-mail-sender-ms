@@ -1,0 +1,10 @@
+# Global env protection
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Keep templates versioned
+!.env.example
+!**/.env.example
+
